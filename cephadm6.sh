@@ -19,3 +19,33 @@
 
 
 
+cat > s3_test.py<<EOF
+
+
+
+import sys
+import boto3
+from botocore.config import Config
+
+# user's access-key and secret-key you added on [2] section
+session = boto3.session.Session(
+    aws_access_key_id = '61SSF8J4G3406NMS1N51',
+    aws_secret_access_key = 'kSTUi2XnPmiF4pWEX0TXgWWkaGq1rY0DjqWJazDv'
+)
+
+# Object Gateway URL
+s3client = session.client(
+    's3',
+    endpoint_url = 'http://ceph-mon1:80',
+    config = Config()
+)
+
+# create [my-new-bucket]
+bucket = s3client.create_bucket(Bucket = 'my-new-bucket')
+
+# list Buckets
+print(s3client.list_buckets())
+
+# remove [my-new-bucket]
+s3client.delete_bucket(Bucket = 'my-new-bucket')
+
