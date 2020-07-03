@@ -29,8 +29,8 @@ from botocore.config import Config
 
 # user's access-key and secret-key you added on [2] section
 session = boto3.session.Session(
-    aws_access_key_id = '61SSF8J4G3406NMS1N51',
-    aws_secret_access_key = 'kSTUi2XnPmiF4pWEX0TXgWWkaGq1rY0DjqWJazDv'
+    aws_access_key_id = '',
+    aws_secret_access_key = ''
 )
 
 # Object Gateway URL
